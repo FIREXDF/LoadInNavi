@@ -1,0 +1,22 @@
+services:
+  backend:
+    build: ./backend
+    container_name: loadinnavi-backend
+    ports:
+      - "3002:3002"
+    environment:
+      - PORT=3002
+      - DOWNLOAD_DIR_MUSIC=/music
+      - DOWNLOAD_DIR_VIDEO=/videos
+      - SPOTIFY_CLIENT_ID=${SPOTIFY_CLIENT_ID}
+      - SPOTIFY_CLIENT_SECRET=${SPOTIFY_CLIENT_SECRET}
+    volumes:
+      - /mnt/qnap/music:/music
+    restart: unless-stopped
+    network_mode: bridge
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:3002/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
