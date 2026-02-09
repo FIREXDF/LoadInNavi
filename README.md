@@ -23,6 +23,7 @@ Here're some of the project's best features:
 *   Easy to use
 *   Support multiple users
 *   Auto-organize files by username
+*   Don't download the video, he automaticaly try to download the music on YouTube Music (Only music not the video)
 
 ---
 
