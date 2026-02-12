@@ -165,7 +165,6 @@
         const titleEl = document.querySelector('h1.ytd-video-primary-info-renderer') || document.querySelector('#title h1');
         if (titleEl) title = titleEl.innerText;
         
-        // Extract channel name
         const channelEl = document.querySelector('ytd-channel-name a') || 
                          document.querySelector('#owner #channel-name a') ||
                          document.querySelector('#upload-info #channel-name a');
@@ -291,7 +290,6 @@
         
         console.log('[LoadInNavi] Starting download:', { url, type, username, modeName });
         
-        // Utiliser directement l'endpoint classique (plus fiable que SSE avec Tampermonkey)
         sendDownloadRequestFallback(url, type, title, channelName, modeName, username);
     }
     
